@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<img src="dung.png" id="dung" style="width: 106px; position: absolute; top: 0; left: 0">
+<img src="diep1.png" id="diep" style="width: 106px; position: absolute; top: 0; left: 200px">
+
+<script>
+
+    let dungImg = document.getElementById('dung');
+    let diepImg = document.getElementById('diep')
+    document.addEventListener('keydown',move);
+
+    function move(evt) {
+        switch (evt.keyCode){
+            case 39:
+                if(parseInt(dungImg.style.left) + parseInt(dungImg.style.width) < parseInt(diepImg.style.left)){
+                    moveRight();
+                } else {
+                    alert('Chao em');
+                    alert('Anh dung day tu chieu');
+                    document.getElementById('diep').src = 'diep2.png';
+                }
+                break;
+            case 37:
+                moveLeft();
+
+                break;
+        }
+    }
+
+    function moveLeft() {
+        dungImg.style.left = parseInt(dungImg.style.left) - 5 + 'px';
+    }
+
+    function moveRight() {
+        dungImg.style.left = parseInt(dungImg.style.left) + 5 + 'px';
+    }
+
+</script>
+
+</body>
+</html>
